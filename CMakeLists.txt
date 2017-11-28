@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.4)
 project (UnitTesting)
 enable_testing ()
 add_test (Test COMMAND Test)
-add_executable (demo main.cpp TestedClass.h)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
+add_executable (demo main.cpp TestedClass.h TestedClass.cpp)
 find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
 include_directories (${TEST_SOURCE_DIR}
         ${Boost_INCLUDE_DIRS}
